@@ -70,18 +70,20 @@
 }
 
 .cardBox {
-  background: rgba(17, 24, 39, 0.7);
+  background: rgba(12, 12, 15, 0.84);
   padding: 40px;
   border-radius: 8px;
-  border: 1px solid rgba(227, 49, 111, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(227, 49, 111, 0.42);
+  box-shadow:
+    0 0 24px rgba(227, 49, 111, 0.14),
+    0 8px 30px rgba(0, 0, 0, 0.85);
 }
 
 .btnTopLeft {
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color: rgba(17, 24, 39, 0.7);
+  background-color: rgba(10, 10, 12, 0.82);
   color: var(--text-bright);
   border: 1px solid var(--accent);
   font-family: "Lexend", sans-serif;
@@ -95,6 +97,7 @@
   transition: all 0.2s ease;
   z-index: 1000;
   backdrop-filter: blur(8px);
+  box-shadow: 0 0 14px rgba(227, 49, 111, 0.25);
   touch-action: manipulation;
 }
 
@@ -141,10 +144,12 @@
 .reputationCard {
   margin-top: 40px;
   padding: 25px;
-  background: rgba(17, 24, 39, 0.7);
+  background: rgba(12, 12, 15, 0.84);
   border-radius: 8px;
-  border: 1px solid rgba(227, 49, 111, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(227, 49, 111, 0.42);
+  box-shadow:
+    0 0 24px rgba(227, 49, 111, 0.14),
+    0 8px 30px rgba(0, 0, 0, 0.85);
 }
 
 .flexRow {
