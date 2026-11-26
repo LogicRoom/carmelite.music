@@ -66,11 +66,12 @@
 
 .brandTitle {
   margin: 0 0 4px 0;
-  font-size: 2.1rem;
-  font-weight: 700;
+  font-family: "CarmeliteBauhaus", sans-serif;
+  font-size: 2.35rem;
+  font-weight: 400;
   color: var(--text-bright);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 1.05;
   text-align: left;
 }
@@ -86,9 +87,10 @@
   justify-content: flex-start;
   gap: 8px;
   margin: 0;
-  font-size: 0.95rem;
+  font-family: "CarmeliteBauhaus", sans-serif;
+  font-size: 1rem;
   color: var(--text-main);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   text-align: left;
 }
 
