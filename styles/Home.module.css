@@ -1,47 +1,60 @@
 .wrapper {
   max-width: 960px;
   margin: 0 auto;
-  padding: 20px 20px 64px;
+  padding: 20px 20px 48px;
   position: relative;
   z-index: 1;
 }
 
-.topBar {
+.brandHeader {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  position: relative;
-  padding-top: 24px;
-  margin-bottom: 12px;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+  text-align: left;
 }
 
 .logoLink {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
 }
 
 .mainLogo {
-  height: 100px;
-  width: auto;
-  filter: drop-shadow(0 0 18px rgba(227, 49, 111, 0.7));
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(227, 49, 111, 0.7));
   transform: translateZ(0);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+.brandText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+
 .btnTopRight {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 14px;
+  right: 16px;
   background-color: rgba(10, 10, 12, 0.82);
   color: var(--text-bright);
   border: 1px solid var(--accent);
   font-family: "Lexend", sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 400;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 7px 14px;
   border-radius: 4px;
   letter-spacing: 1px;
   z-index: 1000;
@@ -51,18 +64,15 @@
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.heroHeader {
-  text-align: center;
-  margin-bottom: 36px;
-}
-
 .brandTitle {
-  margin: 0 0 8px 0;
-  font-size: 2.4rem;
+  margin: 0 0 4px 0;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--text-bright);
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1.05;
+  text-align: left;
 }
 
 .accent {
@@ -73,17 +83,18 @@
 .tagline {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 8px;
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--text-main);
   letter-spacing: 0.5px;
+  text-align: left;
 }
 
 .taglineIcon {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   color: var(--accent);
   filter: drop-shadow(0 0 8px rgba(227, 49, 111, 0.65));
   flex-shrink: 0;
@@ -94,8 +105,8 @@
   background: rgba(12, 12, 15, 0.84);
   border: 1px solid rgba(227, 49, 111, 0.42);
   border-radius: 10px;
-  padding: 28px;
-  margin-bottom: 28px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
   box-shadow:
     0 0 24px rgba(227, 49, 111, 0.14),
     0 8px 30px rgba(0, 0, 0, 0.85);
@@ -103,8 +114,8 @@
 }
 
 .sectionHeading {
-  margin: 0 0 18px 0;
-  font-size: 1.35rem;
+  margin: 0 0 14px 0;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-bright);
   text-transform: uppercase;
@@ -115,18 +126,18 @@
 /* 1. VIP Vault */
 .vaultGrid {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) 1.6fr;
-  gap: 24px;
+  grid-template-columns: minmax(210px, 1fr) 1.6fr;
+  gap: 20px;
   align-items: center;
 }
 
 .vaultCopy .sectionHeading {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .vaultText {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   color: var(--text-main);
   text-align: left;
 }
@@ -135,40 +146,48 @@
 .featuredGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 14px;
 }
 
 .wireframeSlot {
   border: 1px dashed rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   background: rgba(18, 18, 22, 0.75);
-  min-height: 150px;
-  padding: 20px;
+  min-height: 120px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 10px;
+  gap: 8px;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.slotText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
 .playCircle {
-  width: 54px;
-  height: 54px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 2px solid var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-bright);
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   padding-left: 3px;
   box-shadow: 0 0 16px rgba(227, 49, 111, 0.45);
+  flex-shrink: 0;
 }
 
 .slotTitle {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-bright);
   text-transform: uppercase;
@@ -176,7 +195,7 @@
 }
 
 .slotMeta {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: #9ca3af;
 }
 
@@ -256,35 +275,97 @@
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 60px 15px 48px;
+    padding: 14px 14px 36px;
+  }
+
+  .brandHeader {
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-right: 78px;
+  }
+
+  .logoLink {
+    width: 52px;
+    height: 52px;
   }
 
   .mainLogo {
-    height: 84px;
+    width: 52px;
+    height: 52px;
   }
 
   .brandTitle {
-    font-size: 1.9rem;
+    font-size: 1.45rem;
+    margin-bottom: 2px;
+  }
+
+  .tagline {
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+
+  .taglineIcon {
+    width: 16px;
+    height: 16px;
   }
 
   .btnTopRight {
-    top: 15px;
-    right: 15px;
-    font-size: 0.7rem;
-    padding: 6px 12px;
+    top: 12px;
+    right: 12px;
+    font-size: 0.68rem;
+    padding: 5px 10px;
   }
 
   .sectionCard {
-    padding: 20px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+
+  .sectionHeading {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
   }
 
   .vaultGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 10px;
+  }
+
+  .vaultText {
+    font-size: 0.84rem;
   }
 
   .featuredGrid {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .wireframeSlot {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    min-height: 0;
+    padding: 10px 12px;
+    gap: 12px;
+  }
+
+  .slotText {
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .playCircle {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+
+  .slotTitle {
+    font-size: 0.85rem;
+  }
+
+  .slotMeta {
+    font-size: 0.74rem;
   }
 
   .trackRow {

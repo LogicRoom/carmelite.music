@@ -39,35 +39,34 @@ export default function Home() {
       </Link>
 
       <main className={styles.wrapper}>
-        <header className={styles.topBar}>
+        <header className={styles.brandHeader}>
           <Link href="/" className={styles.logoLink}>
             <img src="/images/logo.png" alt="Carmelite Logo" className={styles.mainLogo} id="hero-logo" />
           </Link>
+          <div className={styles.brandText}>
+            <h1 className={styles.brandTitle}>
+              Carmelite<span className={styles.accent}>.</span>
+            </h1>
+            <p className={styles.tagline}>
+              <span>re-engineering house classics</span>
+              <svg
+                className={styles.taglineIcon}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <circle cx="8" cy="12" r="2" />
+                <circle cx="16" cy="12" r="2" />
+                <line x1="10" y1="12" x2="14" y2="12" />
+              </svg>
+            </p>
+          </div>
         </header>
-
-        <section className={`${styles.heroHeader} reveal`}>
-          <h1 className={styles.brandTitle}>
-            Carmelite<span className={styles.accent}>.</span>
-          </h1>
-          <p className={styles.tagline}>
-            <span>re-engineering house classics</span>
-            <svg
-              className={styles.taglineIcon}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <rect x="2" y="6" width="20" height="12" rx="2" />
-              <circle cx="8" cy="12" r="2" />
-              <circle cx="16" cy="12" r="2" />
-              <line x1="10" y1="12" x2="14" y2="12" />
-            </svg>
-          </p>
-        </section>
 
         {/* Section 1: VIP Vault (Kit.com email collection) */}
         <section className={`${styles.sectionCard} reveal`} aria-labelledby="vip-vault-heading">
@@ -94,18 +93,24 @@ export default function Home() {
               <div className={styles.playCircle} aria-hidden="true">
                 ▶
               </div>
-              <span className={styles.slotTitle}>Play Track</span>
-              <span className={styles.slotMeta}>Audio / SoundCloud embed slot</span>
+              <div className={styles.slotText}>
+                <span className={styles.slotTitle}>Play Track</span>
+                <span className={styles.slotMeta}>Audio / SoundCloud embed slot</span>
+              </div>
             </div>
 
             <div className={styles.wireframeSlot}>
-              <span className={styles.slotTitle}>Promo Video</span>
-              <span className={styles.slotMeta}>Video embed / modal slot</span>
+              <div className={styles.slotText}>
+                <span className={styles.slotTitle}>Promo Video</span>
+                <span className={styles.slotMeta}>Video embed / modal slot</span>
+              </div>
             </div>
 
             <div className={styles.wireframeSlot}>
-              <span className={styles.slotTitle}>DL or Purchase Link</span>
-              <span className={styles.slotMeta}>Download / store CTA slot</span>
+              <div className={styles.slotText}>
+                <span className={styles.slotTitle}>DL or Purchase Link</span>
+                <span className={styles.slotMeta}>Download / store CTA slot</span>
+              </div>
             </div>
           </div>
         </section>
