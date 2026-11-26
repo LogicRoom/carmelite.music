@@ -1,69 +1,39 @@
 .wrapper {
-  max-width: 1000px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 20px 20px 64px;
   position: relative;
   z-index: 1;
 }
 
-/* Dedicated breathing room for the top of the page */
-.hero {
-  padding-top: 80px;
-  position: relative;
-}
-
-.logoContainer {
+.topBar {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  width: 100%;
+  position: relative;
+  padding-top: 24px;
+  margin-bottom: 12px;
+}
+
+.logoLink {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainLogo {
-  height: 120px;
+  height: 100px;
   width: auto;
   filter: drop-shadow(0 0 15px rgba(227, 49, 111, 0.6));
   transform: translateZ(0);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.heading {
-  text-align: center;
-  color: var(--text-bright);
-  margin-top: 1px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.heroSubheading {
-  font-size: 1.4rem;
-}
-
-.accent {
-  color: var(--accent);
-}
-
-.subtitle {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 30px;
-  display: block;
-}
-
-.paragraph {
-  text-align: center;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-/* Top Right Button Styling - hidden until scrolled */
 .btnTopRight {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: rgba(17, 24, 39, 0.7);
+  background-color: rgba(17, 24, 39, 0.75);
   color: var(--text-bright);
   border: 1px solid var(--accent);
   font-family: "Lexend", sans-serif;
@@ -77,230 +47,211 @@
   z-index: 1000;
   backdrop-filter: blur(8px);
   touch-action: manipulation;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-15px);
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease,
-    background-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease,
-    visibility 0.4s;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.showNav {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.heroHeader {
+  text-align: center;
+  margin-bottom: 36px;
 }
 
-.heroButtons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin: 10px auto 40px auto;
-}
-
-.btnPrimary {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--accent);
-  color: var(--text-bright);
-  font-family: "Lexend", sans-serif;
-  font-size: 1.1rem;
+.brandTitle {
+  margin: 0 0 8px 0;
+  font-size: 2.4rem;
   font-weight: 700;
+  color: var(--text-bright);
   text-transform: uppercase;
-  text-decoration: none;
-  padding: 16px 40px;
-  border-radius: 4px;
-  margin: 10px auto 40px;
-  width: fit-content;
-  letter-spacing: 1px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  touch-action: manipulation;
+  letter-spacing: 2px;
 }
 
-.heroButtons .btnPrimary {
-  margin: 0;
+.accent {
+  color: var(--accent);
 }
 
-.btnPlay {
-  background: transparent;
-  color: #aaa;
-  border: 1px solid #555;
-  font-family: "Lexend", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  padding: 10px 24px;
-  border-radius: 4px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
+.tagline {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin: 0 auto;
-  touch-action: manipulation;
-}
-
-.venuePlayWrap {
-  display: flex;
   justify-content: center;
-  margin-top: 15px;
-  margin-bottom: 35px;
+  gap: 10px;
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
 }
 
-.flexRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  margin: 30px 0;
-  width: 100%;
-  flex-wrap: wrap;
+.taglineIcon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
-.flexCol {
-  flex: 1;
+/* Shared wireframe section card */
+.sectionCard {
+  background: rgba(17, 24, 39, 0.72);
+  border: 1px solid rgba(227, 49, 111, 0.35);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.sectionHeading {
+  margin: 0 0 18px 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+/* 1. VIP Vault */
+.vaultGrid {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 1.6fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.vaultCopy .sectionHeading {
+  margin-bottom: 8px;
+}
+
+.vaultText {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--text-main);
+  text-align: left;
+}
+
+/* 2. Featured Release */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.wireframeSlot {
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: rgba(17, 24, 39, 0.55);
+  min-height: 150px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 250px;
-}
-
-.rowImg,
-.portraitImg {
-  height: 220px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 12px rgba(227, 49, 111, 0.6));
-}
-
-.flexCol a {
-  display: flex;
   justify-content: center;
-  width: 100%;
+  text-align: center;
+  gap: 10px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.lineupRow .rowImg {
-  height: 280px;
-}
-
-.portraitImg {
-  height: 180px;
-}
-
-.scContainer {
-  width: 100%;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 0 8px rgba(227, 49, 111, 0.3));
-}
-
-.label {
-  font-weight: bold;
+.playCircle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-bright);
-  margin-bottom: 10px;
-  text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-size: 1.25rem;
+  padding-left: 3px;
 }
 
-.desc {
-  font-size: 0.95rem;
-  text-align: center;
-  margin-top: 5px;
+.slotTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
-.icon {
-  width: 40px;
-  height: 40px;
-  margin-top: 10px;
-  transition: transform 0.2s ease;
+.slotMeta {
+  font-size: 0.82rem;
+  color: #9ca3af;
 }
 
-.collectiveBox {
-  margin: 60px 0;
-  padding: 30px;
-  background: rgba(17, 24, 39, 0.7);
-  border: 1px solid rgba(227, 49, 111, 0.3);
+/* 3. Previous Releases */
+.trackList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trackRow {
+  border: 1px dashed rgba(255, 255, 255, 0.25);
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  background: rgba(17, 24, 39, 0.55);
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.collectiveQuote {
-  font-style: italic;
-  color: var(--text-bright);
-  font-size: 1.1rem;
+.trackRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.dataDisclaimer {
+.trackBadge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(227, 49, 111, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
   font-size: 0.8rem;
-  color: #555;
-  margin-top: 40px;
-  text-align: center;
+  flex-shrink: 0;
 }
 
-/* Safe hovers: only applies to mouse/desktop */
+.trackTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.trackPlaceholderNote {
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .mainLogo:hover {
     transform: translateZ(0) scale(1.05);
     filter: drop-shadow(0 0 25px rgba(227, 49, 111, 0.9));
   }
 
-  .btnTopRight.showNav:hover {
+  .btnTopRight:hover {
     background-color: var(--accent);
     color: var(--text-bright);
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(227, 49, 111, 0.4);
   }
 
-  .btnPrimary:hover {
-    transform: scale(1.05);
-    background-color: #c8285f;
-  }
-
-  .btnPlay:hover {
-    color: var(--accent);
+  .wireframeSlot:hover {
     border-color: var(--accent);
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(227, 49, 111, 0.2);
-  }
-
-  .rowImg:hover,
-  .portraitImg:hover {
-    transform: scale(1.03);
-    filter: drop-shadow(0 0 20px rgba(227, 49, 111, 0.8));
-  }
-
-  .icon:hover {
-    transform: scale(1.03);
+    transform: translateY(-2px);
   }
 }
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 20px 15px;
-  }
-
-  .hero {
-    padding-top: 60px;
+    padding: 60px 15px 48px;
   }
 
   .mainLogo {
-    height: 100px;
+    height: 84px;
   }
 
-  .flexCol {
-    min-width: 100%;
+  .brandTitle {
+    font-size: 1.9rem;
   }
 
   .btnTopRight {
@@ -308,5 +259,23 @@
     right: 15px;
     font-size: 0.7rem;
     padding: 6px 12px;
+  }
+
+  .sectionCard {
+    padding: 20px;
+  }
+
+  .vaultGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .featuredGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .trackRow {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
