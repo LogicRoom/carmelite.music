@@ -1,5 +1,6 @@
 .wrapper {
   width: 100%;
+  min-width: 0;
 }
 
 .form {
@@ -8,16 +9,19 @@
   align-items: stretch;
   gap: 12px;
   width: 100%;
+  min-width: 0;
 }
 
 .fields {
   display: flex;
-  flex: 1;
+  flex: 1 1 0%;
+  min-width: 0;
   gap: 12px;
 }
 
 .input {
-  flex: 1;
+  flex: 1 1 0%;
+  width: 100%;
   min-width: 0;
   padding: 12px 14px;
   background: rgba(8, 8, 10, 0.9);
