@@ -90,10 +90,10 @@ export default function Home() {
           <div className={styles.vaultGrid}>
             <div className={styles.vaultCopy}>
               <h2 id="vip-vault-heading" className={styles.sectionHeading}>
-                FREE 80S/90S REMIXES<span className={styles.accent}>.</span>
+                SUBSCRIBE TO MONTLY CARMELITE REMIXES<span className={styles.accent}>.</span>
               </h2>
               <p className={styles.vaultText}>
-                get my 2025 back catalogue instantly, plus new edits monthly.
+                get a free 80s/90s remix every month and the entire unreleased back catalouge <span className={styles.accent}>➡</span>
               </p>
             </div>
 
@@ -102,10 +102,39 @@ export default function Home() {
         </section>
 
         {/* Section 2: Featured Release */}
-        <section className={`${styles.sectionCard} reveal`} aria-labelledby="featured-release-heading">
-          <h2 id="featured-release-heading" className={styles.sectionHeading}>
-            Featured Release<span className={styles.accent}>.</span>
-          </h2>
+        <section
+          className={`${styles.sectionCard} reveal`}
+          aria-labelledby="featured-release-heading"
+          style={{ paddingTop: 20, paddingBottom: 20 }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              gap: 12,
+              flexWrap: "wrap",
+              marginBottom: 14,
+            }}
+          >
+            <h2
+              id="featured-release-heading"
+              className={styles.sectionHeading}
+              style={{ margin: 0, fontSize: 18 }}
+            >
+              DEC 2027<span className={styles.accent}>.</span>
+            </h2>
+            <span
+              className={styles.vaultText}
+              style={{
+                margin: 0,
+                fontSize: 12,
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+              }}
+            >
+              MARSHALL JEFFERSON - MOVE YOUR BODY (CARMELITE EDIT)
+            </span>
+          </div>
 
           <div className={styles.featuredGrid}>
             <div className={styles.wireframeSlot}>
@@ -127,19 +156,18 @@ export default function Home() {
               className={styles.wireframeSlot}
               style={{
                 width: "100%",
-                aspectRatio: "1 / 1",
-                maxHeight: 260,
+                height: 210,
                 margin: "0 auto",
-                padding: 20,
+                padding: "22px 18px",
                 background:
-                  "radial-gradient(circle at 50% 35%, rgba(200, 40, 95, 0.22), rgba(18, 9, 14, 0.92))",
+                  "linear-gradient(180deg, rgba(200, 40, 95, 0.14) 0%, rgba(18, 9, 14, 0.94) 100%)",
                 border: "1px solid rgba(200, 40, 95, 0.45)",
                 borderRadius: 12,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: 12,
+                gap: 10,
                 cursor: "pointer",
                 color: "#ffffff",
               }}
@@ -147,48 +175,112 @@ export default function Home() {
               <span
                 aria-hidden="true"
                 style={{
-                  width: 48,
-                  height: 48,
+                  width: 42,
+                  height: 42,
                   borderRadius: "999px",
-                  border: "1px solid rgba(200, 40, 95, 0.8)",
-                  background: "rgba(200, 40, 95, 0.2)",
+                  background: "rgba(200, 40, 95, 0.18)",
+                  border: "1px solid rgba(200, 40, 95, 0.55)",
                   display: "grid",
                   placeItems: "center",
-                  fontSize: 16,
+                  color: "#f4729d",
+                }}
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <polygon points="6 4 20 12 6 20 6 4" />
+                </svg>
+              </span>
+
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
                   color: "#ffffff",
                 }}
               >
-                ▶
+                PROMO VIDEO
               </span>
-              <span className={styles.slotTitle}>Promo Video</span>
-              <span className={styles.slotMeta}>Watch Track Breakdown</span>
+
+              <span className={styles.slotMeta}>Watch breakdown</span>
             </button>
 
-            <div className={styles.wireframeSlot}>
-              <div className={styles.slotText}>
-                <span className={styles.slotTitle}>Move Your Body (Carmelite Edit)</span>
-                <span className={styles.slotMeta}>Instant email delivery</span>
-                <button
-                  type="button"
-                  onClick={() => setDownloadModalOpen(true)}
-                  style={{
-                    marginTop: 12,
-                    padding: "10px 18px",
-                    borderRadius: 8,
-                    border: "1px solid #c8285f",
-                    background: "#c8285f",
-                    color: "#ffffff",
-                    fontWeight: 600,
-                    fontSize: 13,
-                    letterSpacing: "0.04em",
-                    textTransform: "uppercase",
-                    cursor: "pointer",
-                  }}
+            <button
+              type="button"
+              onClick={() => setDownloadModalOpen(true)}
+              aria-label="Download Now"
+              className={styles.wireframeSlot}
+              style={{
+                width: "100%",
+                height: 210,
+                margin: "0 auto",
+                padding: "22px 18px",
+                background:
+                  "linear-gradient(180deg, rgba(200, 40, 95, 0.14) 0%, rgba(18, 9, 14, 0.94) 100%)",
+                border: "1px solid rgba(200, 40, 95, 0.45)",
+                borderRadius: 12,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 10,
+                cursor: "pointer",
+                color: "#ffffff",
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  width: 42,
+                  height: 42,
+                  borderRadius: "10px",
+                  background: "rgba(200, 40, 95, 0.18)",
+                  border: "1px solid rgba(200, 40, 95, 0.55)",
+                  display: "grid",
+                  placeItems: "center",
+                  color: "#f4729d",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
                 >
-                  Download Now
-                </button>
-              </div>
-            </div>
+                  <path d="M12 3v12" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M5 20h14" />
+                </svg>
+              </span>
+
+              <span
+                style={{
+                  padding: "5px 12px",
+                  borderRadius: 6,
+                  background: "#c8285f",
+                  color: "#ffffff",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                }}
+              >
+                DOWNLOAD NOW
+              </span>
+
+              <span className={styles.slotMeta}>Free edit via email</span>
+            </button>
           </div>
         </section>
 
