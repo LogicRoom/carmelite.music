@@ -79,7 +79,9 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Section 1: Monthly Remixes + Back Catalogue Signup */}
+        
+
+{/* Section 1: Monthly Remixes + Back Catalogue Signup */}
         <section className={`${styles.sectionCard} reveal`} aria-labelledby="vip-vault-heading">
           <div className="carmelite-vault-row">
             <div className={styles.vaultCopy}>
@@ -87,11 +89,10 @@ export default function Home() {
                 id="vip-vault-heading"
                 className={`${styles.sectionHeading} carmelite-single-line-heading`}
               >
-                SUBSCRIBE TO MONTLY CARMELITE REMIXES<span className={styles.accent}>.</span>
+                SUBSCRIBE TO MONTLY 80s/90s REMIXES<span className={styles.accent}>.</span>
               </h2>
               <p className={styles.vaultText} style={{ marginBottom: 0 }}>
-                fresh 80s/90s remix every month +
-                the 32 track unreleased back catalouge for free.
+                fresh edits AND the 32 track unreleased back catalouge for free.
               </p>
             </div>
 
@@ -101,7 +102,7 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="carmelite-form-col">
+            <div className="carmelite-form-col carmelite-kit-form">
               <KitEmailForm />
             </div>
           </div>
@@ -110,7 +111,7 @@ export default function Home() {
             .carmelite-vault-row {
               display: grid;
               grid-template-columns: minmax(0, 2fr) 28px auto;
-              align-items: center;
+              align-items: end;
               gap: 14px;
             }
             .carmelite-single-line-heading {
@@ -121,12 +122,11 @@ export default function Home() {
               align-items: center;
               justify-content: center;
               height: 44px;
-              align-self: end;
             }
             .carmelite-form-col {
               display: flex;
-              align-items: flex-end;
-              align-self: end;
+              align-items: center;
+              min-height: 44px;
             }
             @media (max-width: 768px) {
               .carmelite-vault-row {
@@ -142,10 +142,17 @@ export default function Home() {
               }
               .carmelite-form-col {
                 align-items: stretch;
+                min-height: 0;
+              }
+              .carmelite-kit-form :global(input),
+              .carmelite-kit-form :global(select),
+              .carmelite-kit-form :global(textarea) {
+                font-size: 16px;
               }
             }
           `}</style>
         </section>
+
 
         {/* Section 2: Featured Release */}
         <section
@@ -648,10 +655,12 @@ export default function Home() {
               Download Now<span style={{ color: "#c8285f" }}>.</span>
             </h3>
             <p style={{ margin: "0 0 18px", color: "#d4b8c2", fontSize: 14 }}>
-              Enter your email to get the featured release plus the full back catalogue and monthly edits.
+              fresh edits AND the 32 track unreleased back catalouge for free.
             </p>
 
-            <KitEmailForm />
+            <div className="carmelite-kit-form">
+              <KitEmailForm />
+            </div>
           </div>
         </div>
       )}
