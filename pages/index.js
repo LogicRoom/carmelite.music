@@ -6,8 +6,9 @@ import KitEmailForm from "../components/KitEmailForm";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
 import styles from "../styles/Home.module.css";
 
-const PROMO_REEL_URL = "https://www.instagram.com/reel/DdrYUP-EbO7/";
-const PROMO_REEL_EMBED_URL = "https://www.instagram.com/reel/DdrYUP-EbO7/embed/captioned/";
+const PROMO_VIDEO_URL = "https://www.youtube.com/shorts/O3Gzd7VbUik";
+const PROMO_VIDEO_EMBED_URL =
+  "https://www.youtube-nocookie.com/embed/O3Gzd7VbUik?autoplay=1&rel=0&modestbranding=1";
 
 const PREVIOUS_RELEASES = [
   { id: "track-1", label: "Track", note: "Release embed / link slot" },
@@ -122,7 +123,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setPromoModalOpen(true)}
-              aria-label="Open Promo Video on Instagram"
+              aria-label="Play Promo Video"
               className={styles.wireframeSlot}
               style={{
                 width: "100%",
@@ -160,7 +161,7 @@ export default function Home() {
                 ▶
               </span>
               <span className={styles.slotTitle}>Promo Video</span>
-              <span className={styles.slotMeta}>Watch Instagram Reel</span>
+              <span className={styles.slotMeta}>Watch Track Breakdown</span>
             </button>
 
             <div className={styles.wireframeSlot}>
@@ -223,7 +224,7 @@ export default function Home() {
             position: "fixed",
             inset: 0,
             zIndex: 9999,
-            background: "rgba(0, 0, 0, 0.82)",
+            background: "rgba(0, 0, 0, 0.85)",
             display: "grid",
             placeItems: "center",
             padding: 16,
@@ -233,13 +234,13 @@ export default function Home() {
             onClick={(e) => e.stopPropagation()}
             style={{
               width: "100%",
-              maxWidth: 420,
+              maxWidth: 360,
               background: "#12090e",
               border: "1px solid rgba(200, 40, 95, 0.55)",
               borderRadius: 14,
-              padding: 20,
+              padding: 18,
               position: "relative",
-              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.7)",
+              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.75)",
             }}
           >
             <button
@@ -275,22 +276,22 @@ export default function Home() {
             <div
               style={{
                 width: "100%",
-                aspectRatio: "1 / 1",
+                aspectRatio: "9 / 16",
+                maxHeight: "72vh",
                 borderRadius: 10,
                 overflow: "hidden",
                 border: "1px solid rgba(200, 40, 95, 0.3)",
-                background: "#0a0508",
+                background: "#000000",
               }}
             >
               <iframe
-                src={PROMO_REEL_EMBED_URL}
-                title="Carmelite Promo Video Reel"
+                src={PROMO_VIDEO_EMBED_URL}
+                title="Carmelite Promo Video"
                 width="100%"
                 height="100%"
                 frameBorder="0"
-                scrolling="no"
-                allowTransparency="true"
-                allow="encrypted-media"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
                 style={{
                   width: "100%",
                   height: "100%",
@@ -302,7 +303,7 @@ export default function Home() {
 
             <div style={{ marginTop: 12, textAlign: "right" }}>
               <a
-                href={PROMO_REEL_URL}
+                href={PROMO_VIDEO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -311,7 +312,7 @@ export default function Home() {
                   textDecoration: "none",
                 }}
               >
-                Open on Instagram ↗
+                Watch on YouTube ↗
               </a>
             </div>
           </div>
