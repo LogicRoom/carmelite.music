@@ -10,12 +10,6 @@ const PROMO_VIDEO_URL = "https://www.youtube.com/shorts/O3Gzd7VbUik";
 const PROMO_VIDEO_EMBED_URL =
   "https://www.youtube-nocookie.com/embed/O3Gzd7VbUik?autoplay=1&rel=0&modestbranding=1";
 
-const PREVIOUS_RELEASES = [
-  { id: "track-1", label: "Track", note: "Release embed / link slot" },
-  { id: "track-2", label: "Track", note: "Release embed / link slot" },
-  { id: "track-3", label: "Track", note: "Release embed / link slot" },
-];
-
 export default function Home() {
   useRevealOnScroll();
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
@@ -87,18 +81,70 @@ export default function Home() {
 
         {/* Section 1: Monthly Remixes + Back Catalogue Signup */}
         <section className={`${styles.sectionCard} reveal`} aria-labelledby="vip-vault-heading">
-          <div className={styles.vaultGrid}>
+          <div className="carmelite-vault-row">
             <div className={styles.vaultCopy}>
-              <h2 id="vip-vault-heading" className={styles.sectionHeading}>
+              <h2
+                id="vip-vault-heading"
+                className={`${styles.sectionHeading} carmelite-single-line-heading`}
+              >
                 SUBSCRIBE TO MONTLY CARMELITE REMIXES<span className={styles.accent}>.</span>
               </h2>
-              <p className={styles.vaultText}>
-                get a free 80s/90s remix every month and the entire unreleased back catalouge <span className={styles.accent}>➡</span>
+              <p className={styles.vaultText} style={{ marginBottom: 0 }}>
+                fresh 80s/90s remix every month +
+                the 32 track unreleased back catalouge for free.
               </p>
             </div>
 
-            <KitEmailForm />
+            <div className="carmelite-arrow-col" aria-hidden="true">
+              <span className={styles.accent} style={{ fontSize: 18, lineHeight: 1 }}>
+                ➡
+              </span>
+            </div>
+
+            <div className="carmelite-form-col">
+              <KitEmailForm />
+            </div>
           </div>
+
+          <style jsx>{`
+            .carmelite-vault-row {
+              display: grid;
+              grid-template-columns: minmax(0, 2fr) 28px auto;
+              align-items: center;
+              gap: 14px;
+            }
+            .carmelite-single-line-heading {
+              white-space: nowrap;
+            }
+            .carmelite-arrow-col {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 44px;
+              align-self: end;
+            }
+            .carmelite-form-col {
+              display: flex;
+              align-items: flex-end;
+              align-self: end;
+            }
+            @media (max-width: 768px) {
+              .carmelite-vault-row {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+                gap: 14px;
+              }
+              .carmelite-single-line-heading {
+                white-space: normal;
+              }
+              .carmelite-arrow-col {
+                display: none;
+              }
+              .carmelite-form-col {
+                align-items: stretch;
+              }
+            }
+          `}</style>
         </section>
 
         {/* Section 2: Featured Release */}
@@ -285,23 +331,155 @@ export default function Home() {
         </section>
 
         {/* Section 3: Previous Releases */}
-        <section className={`${styles.sectionCard} reveal`} aria-labelledby="previous-releases-heading">
-          <h2 id="previous-releases-heading" className={styles.sectionHeading}>
+        <section
+          className={`${styles.sectionCard} reveal`}
+          aria-labelledby="previous-releases-heading"
+          style={{ paddingTop: 18, paddingBottom: 18 }}
+        >
+          <h2 id="previous-releases-heading" className={styles.sectionHeading} style={{ margin: 0 }}>
             Previous Releases<span className={styles.accent}>.</span>
           </h2>
+          <p
+            className={styles.vaultText}
+            style={{
+              marginTop: 4,
+              marginBottom: 14,
+              fontSize: 12,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+            }}
+          >
+            CARMELITE - RHYTHM IS A DANCER
+          </p>
 
-          <div className={styles.trackList}>
-            {PREVIOUS_RELEASES.map((item) => (
-              <div key={item.id} className={styles.trackRow}>
-                <div className={styles.trackRowLeft}>
-                  <span className={styles.trackBadge} aria-hidden="true">
-                    ▶
-                  </span>
-                  <span className={styles.trackTitle}>{item.label}</span>
-                </div>
-                <span className={styles.trackPlaceholderNote}>{item.note}</span>
+          <div className={styles.featuredGrid} style={{ alignItems: "stretch" }}>
+            <div
+              className={styles.wireframeSlot}
+              style={{
+                gridColumn: "span 2",
+                height: 164,
+                minHeight: 0,
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                padding: "10px 14px",
+                background: "#090507",
+                borderColor: "rgba(200, 40, 95, 0.35)",
+              }}
+            >
+              <iframe
+                width="100%"
+                height="120"
+                scrolling="no"
+                frameBorder="no"
+                allow="autoplay; encrypted-media"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2042054157&color=%23c8285f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"
+                title="Carmelite - Rhythm is a Dancer"
+                style={{ borderRadius: 6, background: "#090507" }}
+              />
+              <div
+                style={{
+                  fontSize: 11,
+                  lineHeight: 1.2,
+                  color: "#d4b8c2",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                <a
+                  href="https://soundcloud.com/carmelite_music"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#f4729d", textDecoration: "none" }}
+                >
+                  Carmelite
+                </a>
+                {" · "}
+                <a
+                  href="https://soundcloud.com/carmelite_music/rhythm-is-a-dancer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#ffffff", textDecoration: "none" }}
+                >
+                  Rhythm is a Dancer
+                </a>
               </div>
-            ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setDownloadModalOpen(true)}
+              aria-label="Download Now"
+              className={styles.wireframeSlot}
+              style={{
+                width: "100%",
+                height: 164,
+                minHeight: 0,
+                boxSizing: "border-box",
+                margin: "0 auto",
+                padding: "14px 16px",
+                background:
+                  "linear-gradient(180deg, rgba(200, 40, 95, 0.14) 0%, rgba(18, 9, 14, 0.94) 100%)",
+                border: "1px solid rgba(200, 40, 95, 0.45)",
+                borderRadius: 12,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                cursor: "pointer",
+                color: "#ffffff",
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: "10px",
+                  background: "rgba(200, 40, 95, 0.18)",
+                  border: "1px solid rgba(200, 40, 95, 0.55)",
+                  display: "grid",
+                  placeItems: "center",
+                  color: "#f4729d",
+                }}
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3v12" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M5 20h14" />
+                </svg>
+              </span>
+
+              <span
+                style={{
+                  padding: "4px 11px",
+                  borderRadius: 6,
+                  background: "#c8285f",
+                  color: "#ffffff",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                }}
+              >
+                DOWNLOAD NOW
+              </span>
+
+              <span className={styles.slotMeta}>Free edit via email</span>
+            </button>
           </div>
         </section>
       </main>
@@ -431,7 +609,7 @@ export default function Home() {
             onClick={(e) => e.stopPropagation()}
             style={{
               width: "100%",
-              maxWidth: 460,
+              maxWidth: 780,
               background: "#12090e",
               border: "1px solid rgba(200, 40, 95, 0.55)",
               borderRadius: 14,
