@@ -189,3 +189,11 @@ body:has(.carmelite-page) {
     align-items: flex-start;
   }
 }
+
+/* In your KitEmailForm CSS or global CSS */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"] {
+    font-size: 16px !important;
+  }
+}
