@@ -5,12 +5,6 @@ import KitEmailForm from "../components/KitEmailForm";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
 import styles from "../styles/Home.module.css";
 
-const PREVIOUS_RELEASES = [
-  { id: "track-1", label: "Track", note: "Release embed / link slot" },
-  { id: "track-2", label: "Track", note: "Release embed / link slot" },
-  { id: "track-3", label: "Track", note: "Release embed / link slot" },
-];
-
 export default function Home() {
   useRevealOnScroll();
 
@@ -21,7 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
-          content="Carmelite — re-engineering house classics. Join the VIP Vault for new tracks, releases, and upcoming events."
+          content="Carmelite — re-engineering house classics. Get free 80s and 90s house remixes every month plus the 2025 back catalogue."
         />
         <link rel="icon" type="image/png" href="/images/logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png" />
@@ -29,19 +23,15 @@ export default function Home() {
 
       <BackgroundCanvas />
 
-      <Link
-        href="/djtools"
-        id="nav-btn"
-        className={styles.btnTopRight}
-        onClick={(e) => e.currentTarget.blur()}
-      >
-        DJ Tools
-      </Link>
-
       <main className={styles.wrapper}>
         <header className={styles.brandHeader}>
           <Link href="/" className={styles.logoLink}>
-            <img src="/images/logo.png" alt="Carmelite Logo" className={styles.mainLogo} id="hero-logo" />
+            <img
+              src="/images/logo.png"
+              alt="Carmelite Logo"
+              className={styles.mainLogo}
+              id="hero-logo"
+            />
           </Link>
           <div className={styles.brandText}>
             <h1 className={styles.brandTitle}>
@@ -68,14 +58,16 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Section 1: VIP Vault (Kit.com email collection) */}
+        {/* Section 1: Monthly Remixes + Back Catalogue Signup */}
         <section className={`${styles.sectionCard} reveal`} aria-labelledby="vip-vault-heading">
           <div className={styles.vaultGrid}>
             <div className={styles.vaultCopy}>
               <h2 id="vip-vault-heading" className={styles.sectionHeading}>
-                SUBSCRIBE TO MONTHLY REMIXES<span className={styles.accent}>.</span>
+                FREE 80S/90S REMIXES<span className={styles.accent}>.</span>
               </h2>
-              <p className={styles.vaultText}>fresh 80s/90s edits and originals direct to your inbox every month (+ entire back catalogue)</p>
+              <p className={styles.vaultText}>
+                get my 2025 back catalogue instantly, plus new edits monthly.
+              </p>
             </div>
 
             <KitEmailForm />
@@ -90,13 +82,15 @@ export default function Home() {
 
           <div className={styles.featuredGrid}>
             <div className={styles.wireframeSlot}>
-              <div className={styles.playCircle} aria-hidden="true">
-                ▶
-              </div>
-              <div className={styles.slotText}>
-                <span className={styles.slotTitle}>Play Track</span>
-                <span className={styles.slotMeta}>Audio / SoundCloud embed slot</span>
-              </div>
+              <iframe
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameBorder="no"
+                allow="autoplay; encrypted-media"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2430635670&color=%23c8285f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"
+                title="Marshall Jefferson - Move Your Body (Carmelite Edit)"
+              />
             </div>
 
             <div className={styles.wireframeSlot}>
@@ -112,27 +106,6 @@ export default function Home() {
                 <span className={styles.slotMeta}>Download / store CTA slot</span>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Section 3: Previous Releases */}
-        <section className={`${styles.sectionCard} reveal`} aria-labelledby="previous-releases-heading">
-          <h2 id="previous-releases-heading" className={styles.sectionHeading}>
-            Previous Releases<span className={styles.accent}>.</span>
-          </h2>
-
-          <div className={styles.trackList}>
-            {PREVIOUS_RELEASES.map((item) => (
-              <div key={item.id} className={styles.trackRow}>
-                <div className={styles.trackRowLeft}>
-                  <span className={styles.trackBadge} aria-hidden="true">
-                    ▶
-                  </span>
-                  <span className={styles.trackTitle}>{item.label}</span>
-                </div>
-                <span className={styles.trackPlaceholderNote}>{item.note}</span>
-              </div>
-            ))}
           </div>
         </section>
       </main>
