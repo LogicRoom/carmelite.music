@@ -73,9 +73,9 @@ export default function Home() {
           <div className={styles.vaultGrid}>
             <div className={styles.vaultCopy}>
               <h2 id="vip-vault-heading" className={styles.sectionHeading}>
-                VIP Vault<span className={styles.accent}>.</span>
+                SUBSCRIBE TO MONTHLY REMIXES<span className={styles.accent}>.</span>
               </h2>
-              <p className={styles.vaultText}>get new tracks, releases and upcoming events</p>
+              <p className={styles.vaultText}>fresh 80s/90s edits and originals direct to your inbox every month (+ entire back catalogue)</p>
             </div>
 
             <KitEmailForm />

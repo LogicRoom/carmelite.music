@@ -118,7 +118,7 @@ export default function KitEmailForm() {
                 <div />
                 <div />
               </div>
-              <span>Join Vault</span>
+              <span>Subscribe</span>
             </button>
           </div>
         </div>
