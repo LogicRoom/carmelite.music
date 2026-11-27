@@ -5,6 +5,12 @@ import KitEmailForm from "../components/KitEmailForm";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
 import styles from "../styles/Home.module.css";
 
+const PREVIOUS_RELEASES = [
+  { id: "track-1", label: "Track", note: "Release embed / link slot" },
+  { id: "track-2", label: "Track", note: "Release embed / link slot" },
+  { id: "track-3", label: "Track", note: "Release embed / link slot" },
+];
+
 export default function Home() {
   useRevealOnScroll();
 
@@ -63,10 +69,10 @@ export default function Home() {
           <div className={styles.vaultGrid}>
             <div className={styles.vaultCopy}>
               <h2 id="vip-vault-heading" className={styles.sectionHeading}>
-                FREE 80S/90S REMIXES<span className={styles.accent}>.</span>
+                SUBSCRIBE TO MONTHLY REMIXES<span className={styles.accent}>.</span>
               </h2>
               <p className={styles.vaultText}>
-                get my 2025 back catalogue instantly, plus new edits monthly.
+                fresh 80s/90s edits and originals to your inbox every month (+ entire back catalogue).
               </p>
             </div>
 
@@ -106,6 +112,27 @@ export default function Home() {
                 <span className={styles.slotMeta}>Download / store CTA slot</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Section 3: Previous Releases */}
+        <section className={`${styles.sectionCard} reveal`} aria-labelledby="previous-releases-heading">
+          <h2 id="previous-releases-heading" className={styles.sectionHeading}>
+            Previous Releases<span className={styles.accent}>.</span>
+          </h2>
+
+          <div className={styles.trackList}>
+            {PREVIOUS_RELEASES.map((item) => (
+              <div key={item.id} className={styles.trackRow}>
+                <div className={styles.trackRowLeft}>
+                  <span className={styles.trackBadge} aria-hidden="true">
+                    ▶
+                  </span>
+                  <span className={styles.trackTitle}>{item.label}</span>
+                </div>
+                <span className={styles.trackPlaceholderNote}>{item.note}</span>
+              </div>
+            ))}
           </div>
         </section>
       </main>
