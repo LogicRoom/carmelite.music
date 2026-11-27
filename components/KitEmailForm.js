@@ -1,11 +1,15 @@
+import { useId, useState } from "react";
 import Script from "next/script";
 import styles from "./KitEmailForm.module.css";
+
+const KIT_ACTION_URL = "https://app.kit.com/forms/10246468/subscriptions";
+const SUCCESS_MESSAGE = "Success! Now check your email to confirm your subscription.";
 
 const KIT_FORM_OPTIONS = JSON.stringify({
   settings: {
     after_subscribe: {
       action: "message",
-      success_message: "Success! Now check your email to confirm your subscription.",
+      success_message: SUCCESS_MESSAGE,
       redirect_url: "",
     },
     analytics: {
@@ -51,12 +55,62 @@ const KIT_FORM_OPTIONS = JSON.stringify({
 });
 
 export default function KitEmailForm() {
+  const uid = useId();
+  const nameId = `vip-name-${uid}`;
+  const emailId = `vip-email-${uid}`;
+
+  const [firstName, setFirstName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!emailAddress.trim() || submitting) return;
+
+    setSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append("fields[first_name]", firstName.trim());
+      formData.append("email_address", emailAddress.trim());
+
+      await fetch(KIT_ACTION_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: formData.toString(),
+      });
+
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMessage("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  if (submitted) {
+    return (
+      <div className={styles.wrapper} data-kit-embed-slot="vip-vault">
+        <p className={styles.successMessage || styles.vaultText} role="status" style={{ margin: 0 }}>
+          {SUCCESS_MESSAGE}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.wrapper} data-kit-embed-slot="vip-vault">
       <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="afterInteractive" />
 
       <form
-        action="https://app.kit.com/forms/10246468/subscriptions"
+        action={KIT_ACTION_URL}
+        onSubmit={handleSubmit}
         className={`seva-form formkit-form ${styles.formRoot}`}
         method="post"
         data-sv-form="10246468"
@@ -66,11 +120,21 @@ export default function KitEmailForm() {
         data-options={KIT_FORM_OPTIONS}
       >
         <div data-style="clean" className={styles.cleanWrap}>
-          <ul
-            className={`formkit-alert formkit-alert-error ${styles.alert}`}
-            data-element="errors"
-            data-group="alert"
-          />
+          {errorMessage ? (
+            <ul
+              className={`formkit-alert formkit-alert-error ${styles.alert}`}
+              data-element="errors"
+              data-group="alert"
+            >
+              <li>{errorMessage}</li>
+            </ul>
+          ) : (
+            <ul
+              className={`formkit-alert formkit-alert-error ${styles.alert}`}
+              data-element="errors"
+              data-group="alert"
+            />
+          )}
 
           <div
             data-element="fields"
@@ -79,30 +143,34 @@ export default function KitEmailForm() {
           >
             <div className={styles.fields}>
               <div className={`formkit-field ${styles.field}`}>
-                <label className={styles.srOnly} htmlFor="vip-name">
+                <label className={styles.srOnly} htmlFor={nameId}>
                   Name
                 </label>
                 <input
-                  id="vip-name"
+                  id={nameId}
                   className={`formkit-input ${styles.input}`}
                   name="fields[first_name]"
                   type="text"
                   placeholder="Name"
                   aria-label="First Name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
 
               <div className={`formkit-field ${styles.field}`}>
-                <label className={styles.srOnly} htmlFor="vip-email">
+                <label className={styles.srOnly} htmlFor={emailId}>
                   Email
                 </label>
                 <input
-                  id="vip-email"
+                  id={emailId}
                   className={`formkit-input ${styles.input}`}
                   name="email_address"
                   type="email"
                   placeholder="Email"
                   aria-label="Email Address"
+                  value={emailAddress}
+                  onChange={(e) => setEmailAddress(e.target.value)}
                   required
                 />
               </div>
@@ -111,6 +179,7 @@ export default function KitEmailForm() {
             <button
               type="submit"
               data-element="submit"
+              disabled={submitting}
               className={`formkit-submit ${styles.submitBtn}`}
             >
               <div className={`formkit-spinner ${styles.spinner}`} aria-hidden="true">
@@ -118,7 +187,7 @@ export default function KitEmailForm() {
                 <div />
                 <div />
               </div>
-              <span>Subscribe</span>
+              <span>{submitting ? "Subscribing..." : "Subscribe"}</span>
             </button>
           </div>
         </div>
